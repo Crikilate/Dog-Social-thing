@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Social Media</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        font-family: Fondamento;
+      }
+
+        .card {
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Dog Social</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bulldog_video.html">YouTube</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                More Info
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="social_media.html"
+                    >Our Social Media</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="workers.html">Our People</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Our Addresses</a></li>
+              </ul>
+            </li>
+            <a class="nav-link active" href="login.html">Log out</a>
+            <a class="nav-link active" href="contact.html">Contact</a>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <p class="title">Check out our Social Media!</p>
+    <div class="card" style="width: 18rem; margin: 20px 20px;">
+      <img src="data:image/jpeg;base64,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" class="card-img-top" alt="a dog" />
+      <div class="card-body">
+        <h5 class="card-title">Check out my Poodle!</h5>
+        <p class="card-text">
+          @everyone! Look at my cute poodle! It's so fluffy and adorable! 
+        </p>
+        <a href="#" class="btn btn-primary">More info</a>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</html>
