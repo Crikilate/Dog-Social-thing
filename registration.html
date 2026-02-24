@@ -174,7 +174,7 @@
         gender: selectedGender ? selectedGender.value : "Other",
       };
 
-      let users = JSON.parse(localStorage.getItem('users')) || [];
+      let users = JSON.parse(localStorage.getItem('users') || '[]');
       for (let i = 0; i < users.length; i++) {
         if (users[i].username === user.username) {
           alert('Username already exists. Please choose a different username.');
@@ -183,6 +183,7 @@
       }
       users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
+      alert("New User Added!")
     });
   </script>
 </html>
