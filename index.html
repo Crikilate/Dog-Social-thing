@@ -201,11 +201,12 @@
               >Contact</a
             >
           </ul>
-          <form class="d-flex" role="search">
+          <form class="d-flex" onsubmit="searchBreed(event)">
             <input
+              id="searchInput"
               class="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search dog breed"
               aria-label="Search"
             />
             <button class="btn btn-outline-success" type="submit">
@@ -349,6 +350,19 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      function searchBreed(event) {
+        event.preventDefault();
+
+        let input = document
+          .getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+        if (input === "") return;
+
+        window.location.href = `breeds.html?name=${input}`;
+      }
       function loadData(breed) {
         fetch(`https://dog.ceo/api/breed/${breed}/images/random/12`)
           .then((response) => response.json())

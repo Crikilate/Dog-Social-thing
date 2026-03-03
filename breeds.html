@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,9 +11,8 @@
       crossorigin="anonymous"
     />
     <style>
-
       body {
-        background-color:	#e9e5cd;
+        background-color: #e9e5cd;
       }
 
       #carouselExampleCaptions {
@@ -34,18 +33,18 @@
 
       .card:hover {
         transform: scale(1.07);
-        transition: all 0.3s ease-in-out /* space between cards vertically */
+        transition: all 0.3s ease-in-out; /* space between cards vertically */
       }
 
       .card-img-top {
         height: 250px; /* fixed height for images */
-        object-fit: cover; 
+        object-fit: cover;
       }
       .card-link:hover {
         color: lime;
         font-size: 20px;
         transform: scale(1.07);
-        transition: all 0.3s ease-in-out
+        transition: all 0.3s ease-in-out;
       }
 
       .card-link {
@@ -55,7 +54,7 @@
 
       button.seeMoreButton {
         margin: 50px;
-        background-color: #4CAF50; /* Green */
+        background-color: #4caf50; /* Green */
         border: none;
         color: white;
         padding: 10px 24px;
@@ -119,7 +118,9 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="bulldog_video.html">YouTube</a>
@@ -138,20 +139,64 @@
                 More Info
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="breeds.html?name=australian">Australian</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=mastiff">Mastiff</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=retriever">Retriever</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=spitz">Spitz</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=terrier">Terrier</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=poodle">Poodle</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=corgi">Corgi</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=coonhound">Coonhound</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=newfoundland">Newfoundland</a></li>
-                <li><a class="dropdown-item" href="breeds.html?name=sheepdog">Sheepdog</a></li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=australian"
+                    >Australian</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=mastiff"
+                    >Mastiff</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=retriever"
+                    >Retriever</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=spitz"
+                    >Spitz</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=terrier"
+                    >Terrier</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=poodle"
+                    >Poodle</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=corgi"
+                    >Corgi</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=coonhound"
+                    >Coonhound</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=newfoundland"
+                    >Newfoundland</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="breeds.html?name=sheepdog"
+                    >Sheepdog</a
+                  >
+                </li>
               </ul>
             </li>
-              <a class="nav-link active" aria-current="page" href="login.html">Log out</a>
-              <a class="nav-link active" aria-current="page" href="contact.html">Contact</a>
+            <a class="nav-link active" aria-current="page" href="login.html"
+              >Log out</a
+            >
+            <a class="nav-link active" aria-current="page" href="contact.html"
+              >Contact</a
+            >
           </ul>
           <form class="d-flex" role="search">
             <input
@@ -160,7 +205,7 @@
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-success" type="submit">
+                     <button class="btn btn-outline-success" type="submit">
               Search
             </button>
           </form>
@@ -182,36 +227,40 @@
     ></script>
     <script>
       const params = new URLSearchParams(window.location.search);
-      const name = params.get("name");
+      const breed = params.get("name");
 
-      function loadData() {
-        fetch(
-          `https://dog.ceo/api/breed/${name}/images/random/48`
-        )
+      function loadBreed(breed) {
+        fetch(`https://dog.ceo/api/breed/${breed}/images/random/12`)
           .then((response) => response.json())
           .then((data) => {
-            const imageContainer = document.getElementById('image-container');
-            imageContainer.innerHTML = ""
+            const container = document.getElementById("image-container");
+
+            if (data.status === "error") {
+              container.innerHTML = `
+        <div style="text-align:center; margin-top:80px;">
+          <h1 style="color:red;">Breed Not Found</h1>
+          <p>The breed you searched does not exist.</p>
+        </div>
+        `;
+              return;
+            }
+
+            container.innerHTML = "";
+
             data.message.forEach((image) => {
-              const htmlContent = `
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                  <div class="card">
-                    <img
-                      src="${image}"
-                      class="card-img-top"
-                      alt="Dog Image"
-                    />
-            
-                  </div>
-                </div>
-                `;
-              imageContainer.innerHTML += htmlContent;
+              const card = `
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card">
+            <img src="${image}" class="card-img-top">
+          </div>
+        </div>
+        `;
+              container.innerHTML += card;
             });
-          }
-        )
+          });
       }
-      loadData();
-   </script>
+
+      loadBreed(breed);
+    </script>
   </body>
 </html>
-
