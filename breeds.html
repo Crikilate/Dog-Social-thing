@@ -213,11 +213,14 @@
       </div>
     </nav>
     <div class="container text-center">
-      <div class="row" id="image-container">
-        <div class="loader"></div>
-      </div>
-      <button id="seeMoreButton" class="seeMoreButton" onclick="loadBreed()">See more</button>
-    </div>
+  <div id="loader" class="loader"></div>
+
+  <div class="row" id="image-container"></div>
+
+  <button id="seeMoreButton" class="seeMoreButton" onclick="loadBreed()">
+    See more
+  </button>
+</div>
     <footer>@Copyrighted, No rights reserved</footer>
 
     <script
@@ -232,6 +235,11 @@
         fetch(`https://dog.ceo/api/breed/${breed}/images/random/12`)
           .then((response) => response.json())
           .then((data) => {
+
+            const loader = document.getElementById("loader");
+            if (loader) {
+              loader.remove(); // completely deletes it
+            }
             const container = document.getElementById("image-container");
 
             if (data.status === "error") {
