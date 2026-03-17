@@ -62,6 +62,7 @@
             id="exampleInputUsername1"
             name="username"
             aria-describedby="UsernameHelp"
+            required
           />
         </div>
         <div class="mb-3 col-6">
@@ -71,6 +72,9 @@
             class="form-control"
             id="exampleInputPassword1"
             name="password"
+            min="5"
+            max="20"
+            required
           />
         </div>
         <div class="mb-3 col-6">
@@ -81,13 +85,14 @@
             id="exampleInputName1"
             name="name"
             aria-describedby="NameHelp"
+            required
           />
         </div>
         <div class="mb-3 col-6">
           <label for="exampleInputBirthdate1" class="form-label"
             >Birthdate</label
           >
-          <input type="date" class="form-control" id="exampleInputBirthdate1" name="birthdate" />
+          <input type="date" class="form-control" id="exampleInputBirthdate1" name="birthdate" required/>
         </div>
         <div class="mb-3 col-6">
           <label class="form-label">Gender</label>
@@ -109,6 +114,7 @@
                 name="gender"
                 id="genderFemale"
                 value="female"
+                required
               />
               <label class="form-check-label" for="genderFemale">Female</label>
             </div>

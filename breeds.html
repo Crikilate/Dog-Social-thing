@@ -216,7 +216,7 @@
       <div class="row" id="image-container">
         <div class="loader"></div>
       </div>
-      <button id="seeMoreButton" class="seeMoreButton" onclick="loadData()">See more</button>
+      <button id="seeMoreButton" class="seeMoreButton" onclick="loadBreed()">See more</button>
     </div>
     <footer>@Copyrighted, No rights reserved</footer>
 
@@ -227,16 +227,15 @@
     ></script>
     <script>
       const params = new URLSearchParams(window.location.search);
-      const breed = params.get("name");
-
-      function loadBreed(breed) {
+      function loadBreed() {
+        const breed = params.get("name");
         fetch(`https://dog.ceo/api/breed/${breed}/images/random/12`)
           .then((response) => response.json())
           .then((data) => {
             const container = document.getElementById("image-container");
 
             if (data.status === "error") {
- const seeMoreButton = document.getElementById("seeMoreButton");
+              const seeMoreButton = document.getElementById("seeMoreButton");
               seeMoreButton.style.display = "none";
               container.innerHTML = `
         <div style="text-align:center; margin-top:80px;">
@@ -247,7 +246,7 @@
               return;
             }
 
-            container.innerHTML = "";
+            
 
             data.message.forEach((image) => {
               const card = `
@@ -262,7 +261,7 @@
           });
       }
 
-      loadBreed(breed);
+      loadBreed();
     </script>
   </body>
 </html>
